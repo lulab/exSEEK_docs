@@ -3,11 +3,11 @@
 
 ## Workflow
 
-![workflow](../assets/whole_pipe.png)
+![workflow](docs/img/whole_pipe.png)
 
 ## Installation
 
-Install required software packages according to [requirements](requirements.md)
+Install required software packages according to [requirements](docs/requirements.md)
 
 Download the scripts:
 
@@ -21,7 +21,7 @@ git clone https://github.com/lulab/exSeek-dev.git
 
 Download preprocessed genome annotations to `genome/hg38`
 
-Refer to the [documentation](genome_and_annotations.md) for details.
+Refer to the [documentation](docs/genome_and_annotations.md) for details.
 
 ### Input data files
 
@@ -136,7 +136,7 @@ If you changed mapping order in the *rna_types* config variable, you should upda
 exseek.py update_sequential_mapping --dataset ${dataset}
 ```
 
-Description of output files: [output_files](output_files.md)
+Description of output files: [output_files](docs/output_files.md)
 
 ## Generate count matrix
 ```bash
@@ -215,5 +215,5 @@ ${exseek_path}/bin/exseek.py count_matrix --dataset ${dataset}
 
 ## Frequently asked Questions
 
-[FAQs](FAQ.md)
+[FAQs](docs/FAQ.md)
 
