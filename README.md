@@ -1,13 +1,11 @@
 # exSeek
-[![Build Status](https://travis-ci.com/lulab/exSeek-dev.svg?token=CyRgUWsqWCctKvAxMXto&branch=master)](https://travis-ci.com/lulab/exSeek-dev)
-
 ## Workflow
 
-![workflow](docs/img/whole_pipe.png)
+![workflow](img/whole_pipe.png)
 
 ## Installation
 
-Install required software packages according to [requirements](docs/requirements.md)
+Install required software packages according to [requirements](requirements.md)
 
 Download the scripts:
 
@@ -21,7 +19,7 @@ git clone https://github.com/lulab/exSeek-dev.git
 
 Download preprocessed genome annotations to `genome/hg38`
 
-Refer to the [documentation](docs/genome_and_annotations.md) for details.
+Refer to the [documentation](genome_and_annotations.md) for details.
 
 ### Input data files
 
@@ -215,5 +213,5 @@ ${exseek_path}/bin/exseek.py count_matrix --dataset ${dataset}
 
 ## Frequently asked Questions
 
-[FAQs](docs/FAQ.md)
+[FAQs](FAQ.md)
 
