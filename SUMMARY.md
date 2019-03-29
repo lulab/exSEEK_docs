@@ -2,18 +2,25 @@
 
 * [Overview](index.md)
 
-  - Get Started: get_started.md
-  - Installation: installation.md
-  - Genome and Annotations: genome_and_annotations.md
-  - Small RNA-seq mapping: small_rna_mapping.md
-  - Long RNA-seq mapping: long_rna_mapping.md
-  - Matrix processing: matrix_processing.md
-  - Feature Selection: feature_selection.md
-  - Run on a cluster: cluster_configuration.md
-  - Configuration File Reference: configuration.md
-  - Utilities:
-    - Quality Control: quality_control.md
-    - Adapter Removal: adapter_removal.md
-    - Generate BigWig Files: bigwig.md
-    - IGV Browser: igv_browser.md
-  - Frequently Asked Questions: FAQ.md
+---
+
+* [Get Started](get_started.md)
+* [Installation](installation.md)
+* Pre-process
+  * [Genome and Annotations](genome_and_annotations.md)
+  * [Small RNA-seq mapping](small_rna_mapping.md)
+  * [Long RNA-seq mapping](long_rna_mapping.md)
+* exSEEK
+  * [Matrix processing](matrix_processing.md)
+  * [Feature Selection](feature_selection.md)
+  * [Run on a cluster](cluster_configuration.md)
+  * [Configuration File Reference](configuration.md)
+* Utilities
+  * [Quality Control](quality_control.md)
+  * [Adapter Removal](adapter_removal.md)
+  * [Generate BigWig Files](bigwig.md)
+  * [IGV Browser](igv_browser.md)
+
+---
+
+* [Frequently Asked Questions](FAQ.md)
