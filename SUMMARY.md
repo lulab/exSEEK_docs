@@ -1,9 +1,5 @@
 # Table of contents
 
-* [Overview](index.md)
-
----
-
 * [Get Started](get_started.md)
 * [Installation](installation.md)
 * Pre-process
