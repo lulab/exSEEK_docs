@@ -2,8 +2,8 @@
 
 ## Run feature selection module
 
-Assume that we have already run `normalization` module and selected best matrix processing method based on the UCA score, 
-we can run feature selection module using the following command:
+Assume that we have already run `normalization` module and selected best matrix processing method based on the UCA score, we can run feature selection module using the following command:
+
 ```bash
 exseek.py feature_selection -d ${dataset}
 ```
@@ -13,14 +13,15 @@ exseek.py feature_selection -d ${dataset}
 ### Outuput directory
 
 Feature selection results using one combination of parameters are saved in a separate directory:
-```
+
+```text
 ${output_dir}/cross_validation/${preprocess_method}.${count_method}/${compare_group}/${classifier}.${n_select}.${selector}.${fold_change_filter_direction}
 ```
 
 **Variables in file patterns**
 
 | Variable | Descrpition |
-| --------- | ----------- |
+| :--- | :--- |
 | `output_dir` | Output directory for the dataset, e.g. `output/dataset` |
 | `preprocess_method` | Combination of matrix processing methods |
 | `count_method` | Type of feature counts, e.g. `domains_combined`, `domains_long`, `transcript`, `featurecounts` |
@@ -33,7 +34,7 @@ ${output_dir}/cross_validation/${preprocess_method}.${count_method}/${compare_gr
 ### Files in output directory
 
 | File name pattern | Descrpition |
-| --------- | ----------- |
+| :--- | :--- |
 | `features.txt` | Selected features. Plain text with one column: feature names |
 | `feature_importances.txt` | Plain text with two columns: feature name, feature importance |
 | `samples.txt` | Sample IDs in input matrix selected for feature selection |
@@ -43,12 +44,13 @@ ${output_dir}/cross_validation/${preprocess_method}.${count_method}/${compare_gr
 | `metrics.test.txt` | Same format with `metrics.train.txt` on test data. |
 | `cross_validation.h5` | Cross-validation details in HDF5 format. |
 
-**Cross validation details (cross_validation.h5)**
+**Cross validation details \(cross\_validation.h5\)**
 
 | Dataset name | Dimension | Description |
-| ------------ | --------- | ----------- |
-| feature_selection | (n_splits, n_features) | Binary matrix indicating features selected in each cross-validation split |
-| labels | (n_samples,) | True class labels |
-| predicted_labels | (n_splits, n_samples) | Predicted class labels on all samples |
-| predictions | (n_splits, n_samples) | Predicted probabilities of the positive class (or decision function for SVM) |
-| train_index | (n_splits, n_samples) | Binary matrix indicating training samples in each cross-validation split |
+| :--- | :--- | :--- |
+| feature\_selection | \(n\_splits, n\_features\) | Binary matrix indicating features selected in each cross-validation split |
+| labels | \(n\_samples,\) | True class labels |
+| predicted\_labels | \(n\_splits, n\_samples\) | Predicted class labels on all samples |
+| predictions | \(n\_splits, n\_samples\) | Predicted probabilities of the positive class \(or decision function for SVM\) |
+| train\_index | \(n\_splits, n\_samples\) | Binary matrix indicating training samples in each cross-validation split |
+

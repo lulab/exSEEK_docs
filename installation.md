@@ -1,6 +1,5 @@
 # Installation
 
-
 ## Install exSeek
 
 ```bash
@@ -9,12 +8,13 @@ git clone https://github.com/lulab/exSeek-dev.git
 
 ## Install required software
 
-* Python 3.6 (miniconda)
-* Python 2.7 (miniconda)
+* Python 3.6 \(miniconda\)
+* Python 2.7 \(miniconda\)
 * Java 8
-* R 3.4 (https://mran.microsoft.com/download)
+* R 3.4 \([https://mran.microsoft.com/download](https://mran.microsoft.com/download)\)
 
 ### Configure conda channels
+
 ```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
@@ -26,6 +26,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 ```
 
 ### Install Python packages using conda
+
 ```bash
 conda install -y numpy scipy scikit-learn 'openssl<1.1'
 conda install -y pandas matplotlib seaborn
@@ -38,7 +39,7 @@ pip install multiqc
 
 ### Install Bioconda packages
 
-List of all available Bioconda packages: (https://bioconda.github.io/recipes.html)
+List of all available Bioconda packages: \([https://bioconda.github.io/recipes.html](https://bioconda.github.io/recipes.html)\)
 
 ```bash
 conda install -y bedtools samtools star subread bowtie2
@@ -57,7 +58,8 @@ sudo apt-get install -y gzip pigz openjdk-8-jdk libgraphviz-dev uuid-dev zlib1g-
 ### Install R packages
 
 Install by running the following code in an R interactive session:
-```R
+
+```r
 options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 # From CRAN
@@ -82,9 +84,10 @@ install_github('theislab/kBET')
 ```
 
 ### Other packages
-* [find_circ 1.2](https://github.com/marvin-jens/find_circ) (depends on Python 2.7)
-* [GTFTools](http://www.genemine.org/codes/GTFtools_0.6.5.zip) (depends on Python)
-* [Prinseq](http://prinseq.sourceforge.net/) (requires Perl)
+
+* [find\_circ 1.2](https://github.com/marvin-jens/find_circ) \(depends on Python 2.7\)
+* [GTFTools](http://www.genemine.org/codes/GTFtools_0.6.5.zip) \(depends on Python\)
+* [Prinseq](http://prinseq.sourceforge.net/) \(requires Perl\)
 
 ## Singularity
 
@@ -95,6 +98,7 @@ singularity build singularity/exseek.img singularity/Singularity
 ```
 
 ### Make wrappers for singularity executables
+
 ```bash
 bin/make_singularity_wrappers.py \
     --image ~/singularity/simg/exseek.simg \
@@ -104,6 +108,7 @@ bin/make_singularity_wrappers.py \
 ```
 
 ### Add wrappers to PATH
+
 ```bash
 export PATH="$HOME/singularity/wrappers/exseek:$PATH"
 ```
@@ -129,3 +134,4 @@ make x86_64/libjkweb.so
 )
 cp tools/userApps/kent/src/lib/x86_64/libjkweb.so lib/
 ```
+

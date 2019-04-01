@@ -1,3 +1,5 @@
+# Configuration File Reference
+
 ```yaml
 # RNA types for sequential mapping in small-RNA pipeline
 rna_types: [rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, 
@@ -77,7 +79,7 @@ normalization_methods: ["SCnorm", "TMM", "RLE", "CPM", "CPM_top", "CPM_rm"]
 batch_removal_methods: ["null", "Combat", "RUV"]
 # Column index of batch effect in batch_info.txt to considier for Combat
 batch_indices: []
-    
+
 # Root directory
 root_dir: "."
 # Directory for sequences and annotations
@@ -152,3 +154,4 @@ count_multimap_reads: true
 # Count overlapping features
 count_overlapping_features: true
 ```
+

@@ -1,6 +1,7 @@
-# Small RNA mapping
+# Small RNA-seq mapping
 
 ## Create spikein directory
+
 ```bash
 # output spike-in directory
 spikein_dir="data/${dataset}/spikein"
@@ -25,13 +26,14 @@ bowtie2-build "$spikein_dir/fasta/spikein.fa" "$spikein_dir/index/bowtie2/spikei
 ## Update sequential mapping order
 
 The default mapping order is set as `rna_type` variable in `snakemake/default_config.yaml`:
+
 ```yaml
 rna_types: [rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, 
   snRNA, srpRNA, tRNA, tucpRNA, Y_RNA]
 ```
 
-You can change the mapping order by add a `rna_type` variable in `config/${dataset}.yaml`. 
-For example, add spike-in sequences as the first RNA type:
+You can change the mapping order by add a `rna_type` variable in `config/${dataset}.yaml`. For example, add spike-in sequences as the first RNA type:
+
 ```yaml
 rna_types: [spikein, rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, 
   snRNA, srpRNA, tRNA, tucpRNA, Y_RNA]
@@ -43,18 +45,19 @@ exseek.py update_sequential_mapping -d ${dataset}
 
 ## Add new reference sequence
 
-If a new RNA type is added, you should also add a sequence file in FASTA format: `${genome_dir}/fasta/${rna_type}.fa`.
-Then build a FASTA index (`${genome_dir}/fasta/${rna_type}.fa.fai`):
+If a new RNA type is added, you should also add a sequence file in FASTA format: `${genome_dir}/fasta/${rna_type}.fa`. Then build a FASTA index \(`${genome_dir}/fasta/${rna_type}.fa.fai`\):
+
 ```bash
 samtools faidx ${genome_dir}/fasta/${rna_type}.fa
 ```
 
-Then build a bowtie2 index (`${genome_dir}/index/bowtie2/${rna_type}`):
+Then build a bowtie2 index \(`${genome_dir}/index/bowtie2/${rna_type}`\):
+
 ```bash
 bowtie2-build ${genome_dir}/fasta/${rna_type}.fa ${genome_dir}/index/bowtie2/${rna_type}
 ```
 
-## Quality control (before adapter removal)
+## Quality control \(before adapter removal\)
 
 ```bash
 exseek.py quality_control -d ${dataset}
@@ -75,7 +78,7 @@ ln -f -s ${fastq_dir}/*.fastq.gz ${output_dir}/cutadapt
 exseek.py fastq_to_fasta -d ${dataset}
 ```
 
-## Quality control (after adapter removal)
+## Quality control \(after adapter removal\)
 
 ```bash
 exseek.py quality_control_clean -d ${dataset}

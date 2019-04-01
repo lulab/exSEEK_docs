@@ -1,4 +1,4 @@
-# IGV Genome Browser
+# IGV Browser
 
 ## Reference genome configuration file
 
@@ -42,6 +42,7 @@ Two keys are required: `genome` and `reference`. The annotation tracks can be pr
 ## Custom reference genome from FASTA file
 
 ### Human rRNA
+
 ```bash
 # map NR_* ids to gene names
 tr '|' $'\t' < "genome/hg38/source/refSeq_rRNA.ids.txt" > genome/hg38/source/refSeq_rRNA.gene_names.txt
@@ -54,7 +55,7 @@ bin/create_igv.py create_reference --genome rRNA --name 'Human (rRNA)' \
 The `create_reference` command generates a directory names `genome/hg38/igv/rRNA` that contains the following files:
 
 | Filename | Description |
-| -------- | ----------- |
+| :--- | :--- |
 | `reference.fa` | Reference genome sequences |
 | `reference.fa.fai` | FASTA index for `reference.fa` |
 | `config.yaml` | Track configuration file for creating IGV web page |
@@ -62,18 +63,19 @@ The `create_reference` command generates a directory names `genome/hg38/igv/rRNA
 | `annotation.genePred` | Annotation in genePred format |
 | `cytoband.txt` | Cytoband file |
 
-
 ## Generate IGV HTML
 
 ### Configure web server
 
 Setup a web server using Apache or other HTTP engines and set the base URL:
+
 ```bash
 base_url="http://example.com/igv"
 ```
 
 The directory structure of IGV should be like:
-```
+
+```text
 /genome
     hg38/
         igv/
@@ -90,10 +92,10 @@ The directory structure of IGV should be like:
         ${dataset}_${map_step}.yaml
     html/
         ${dataset}_${map_step}.html
-    
 ```
 
-### Transcriptomic BigWig files (small RNA)
+### Transcriptomic BigWig files \(small RNA\)
+
 ```bash
 bin/create_igv.py generate_config \
     --sample-classes data/${dataset}/sample_classes.txt \
@@ -107,7 +109,8 @@ bin/create_igv.py render -i templates/igv/main.html \
     -o genome_browser/igv/${dataset}_transcriptome.html
 ```
 
-### BigWig files on custom reference genome (Long RNA)
+### BigWig files on custom reference genome \(Long RNA\)
+
 ```bash
 map_step="rRNA"
 bin/create_igv.py generate_config --locus "$locus" \
@@ -139,8 +142,10 @@ bin/web_server.py --build-database --genome hg38 \
 ## Start web server
 
 Start a web server that listens on port 5000
+
 ```bash
 bin/web_server.py --host 0.0.0.0 --port 5000 -i igv/database/hg38.pkl
 ```
 
 Then navigate to `http://<server>:5000/igv/${dataset}_genome.html` to visit the genome browser.
+

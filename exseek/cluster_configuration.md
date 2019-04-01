@@ -1,4 +1,4 @@
-# Cluster configuration
+# Run on a cluster
 
 **cluster configuration**: `config/cluster.yaml`
 
@@ -16,16 +16,16 @@ __default__:
 
 **cluster command**: `config/cluster_command.txt`
 
-```
+```text
 bsub -q {cluster.queue} -J {cluster.name} -e {cluster.stderr} -o {cluster.stdout} -R {cluster.resources} -n {cluster.threads}
 ```
 
 **Commonly used parameters**
 
 | Parameter | Description |
-| ------ | ----------- |
-| `__default__` | Rule name (`__default__`) for default configuration) | 
-| `queue` | Queue name (required) |
+| :--- | :--- |
+| `__default__` | Rule name \(`__default__`\) for default configuration\) |
+| `queue` | Queue name \(required\) |
 | `name` | Job name |
 | `stderr` | Log file for standard error |
 | `stdout` | Log file for standard output |
@@ -33,3 +33,4 @@ bsub -q {cluster.queue} -J {cluster.name} -e {cluster.stderr} -o {cluster.stdout
 | `resources` | Resource requirements. `span[hosts=1]` prevents parallel jobs from being submitted to different nodes |
 
 Refer to the snakemake [documentation](https://snakemake.readthedocs.io/en/stable/).
+
