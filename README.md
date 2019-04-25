@@ -10,7 +10,7 @@
 
 ## Installation
 
-Install required software packages according to [installation](https://github.com/lulab/exSEEK_docs/tree/dd93c0deb8978e7aa0276d6fdf40ae288e5d42fa/installation.md)
+Install required software packages according to [installation](docs/installation)
 
 Download the scripts:
 
