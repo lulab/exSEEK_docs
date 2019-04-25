@@ -10,7 +10,7 @@
 
 ## Installation
 
-Install required software packages according to [installation](docs/installation)
+Install required software packages according to [installation](installation.md)
 
 Download the scripts:
 
