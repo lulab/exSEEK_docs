@@ -65,9 +65,9 @@ The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK)
 
 The positional arguments are exSEEK modules: 
 ```
-quality_control,quality_control_clean,cutadapt,rename_fastq,fastq_to_fasta,prepare_genome,bigwig,mapping,count_matrix,
-call_domains,merge_domains,combine_domains,normalization,feature_selection,differential_expression,evaluate_features,igv,
-update_sequential_mapping,update_singularity_wrappers
+quality_control,quality_control_clean,cutadapt,rename_fastq,fastq_to_fasta,prepare_genome,bigwig,
+mapping,count_matrix,call_domains,merge_domains,combine_domains,normalization,feature_selection,
+differential_expression,evaluate_features,igv,update_sequential_mapping,update_singularity_wrappers
 ```
 
 > **Note**
