@@ -1,9 +1,10 @@
 # Get Started
 
+**Every module can be run with a simple command using main program**. You should prepare input files (genome and annotation, input data files, dataset configuration file) before running.
 
 ## Main Program
 
-**Every module can be run with a simple command:**
+
 
 Run `exseek.py --help` to get basic usage:
 
@@ -48,15 +49,19 @@ optional arguments:
 
 ## Prepare input files
 
-You can follow the following instrucstions to prepare data and config files before running some certain modules. You should prepare genome and annotation, put the input data in the right directory, fill in the data configuration file correcly. Suppose the root directory is `exSEEK`. The dataset is called `cfRNA`.
+You can follow the following instrucstions to prepare data and config files before running some certain modules. **You should prepare genome and annotation, put the input data in the right directory, and fill in the data configuration file correcly.**
 
-### Genome and annotation directory
+Suppose the root directory is `exSEEK`. The dataset is called `cfRNA`.
+
+### For users starting from raw fastq data.
+
+#### Genome and annotation directory
 
 Download preprocessed genome annotations to `genome/hg38`
 
 Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 
-### Input data files
+#### Input data files
 
 | File name | Description |
 | :--- | :--- |
@@ -70,6 +75,24 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 
 For example, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
 
+
+### For users starting from a prepared expression matrix
+you could ignore the genome and annotation part and prepare the following input 
+
+#### Input data files
+
+| File name | Description |
+| :--- | :--- |
+| `${count_matrix_dir}/matrix.txt` | expression matrix |
+| `${input_dir}/sample_ids.txt` | A text file with one sample ID per line. |
+| `${input_dir}/sample_classes.txt` | A tab-deliminated file \(with header\) with two columns: sample\_id, label \(optional\) |
+| `${input_dir}/batch_info.txt` | A comma-deliminated file \(with header\) with at least two columns: sample\_id, batch1, batch2, ... \(optional\) |
+| `${input_dir}/compare_groups.yaml` | A YAML file defining positive and negative classes. \(optional\) |
+| `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
+
+For example, the `${count_matrix_dir}/matrix.txt` could be `output/cfRNA/count_matrix/matrix.txt`, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
+
+
 > **Note** 
 >
 > for **compare\_groups.yaml**, every key-value pairs defines a compare group and a negative-positive class pair:
@@ -81,7 +104,7 @@ For example, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dat
 >
 >```
 
-#### Dataset configuration file
+### Dataset configuration file
 
 All parameters are specified in a configuration file in [YAML](https://en.wikipedia.org/wiki/YAML) format.
 
@@ -102,7 +125,7 @@ The following parameters should be changed:
 | aligner | Mapping software | bowtie2 |
 | adaptor | 3' adaptor sequence for single-end RNA-seq | AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC |
 
-#### Cluster configuration file
+### Cluster configuration file
 
 Please refer the [link](https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#cluster-configuration) for descriptions of cluster configuration file.
 
