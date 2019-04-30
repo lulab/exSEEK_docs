@@ -48,7 +48,7 @@ optional arguments:
 
 ## Prepare input files
 
-You can follow the following instrucstions to prepare data and config files before running some certain modules. Suppose the root directory is `exSEEK`. You should prepare genome and annotation, 
+You can follow the following instrucstions to prepare data and config files before running some certain modules. You should prepare genome and annotation, put the input data in the right directory, fill in the data configuration file correcly. Suppose the root directory is `exSEEK`. The dataset is called `cfRNA`.
 
 ### Genome and annotation directory
 
@@ -68,15 +68,16 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 | `${input_dir}/compare_groups.yaml` | A YAML file defining positive and negative classes. \(optional\) |
 | `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
 
+For example, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
+
 > **Note** 
 >
-> for **compare\_groups.yaml**
->
-> Every key-value pairs defines a compare group and a negative-positive class pair:
+> for **compare\_groups.yaml**, every key-value pairs defines a compare group and a negative-positive class pair:
 >
 >```yaml
 >
->Normal-CRC: ["Healthy Control", "Colorectal Cancer"]
+>Normal-HCC: ['Normal', 'stage_A,stage_B,stage_C']
+>Normal-stage_A: ['Normal', 'stage_A']
 >
 >```
 
@@ -84,9 +85,9 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 
 All parameters are specified in a configuration file in [YAML](https://en.wikipedia.org/wiki/YAML) format.
 
-The default configuration file is \(snakemake/default\_config.yaml\).
+The default configuration file is \(snakemake/default\_config.yaml\). It contains all possible parameters to change. You do not need to change the default config file. 
 
-Example configuration files can be found in _config/_.
+You should create a config file for your own dataset as `${config_dir}/${dataset}.yaml` (for example `config/cfRNA.yaml`). Example configuration files can be found in [exSEEK configuration](exseek/configuration.md) 
 
 The parameter values in the configuration file can also be overrided through the _--config_ option in [snakemake](https://snakemake.readthedocs.io/en/stable/executable.html).
 
