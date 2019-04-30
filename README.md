@@ -8,7 +8,7 @@
 
 - [Workflow](#Workflow)
 - [Installation](#installation)
-- [Usage](#basic-usage-of-exSeek)
+- [Usage](#basic-usage-of-exseek)
 - [Contact](#contact)
 - [Frequently asked Questions](#frequently-asked-questions)
 - [Copyright and License Information](#copyright-and-license-information)
@@ -76,19 +76,19 @@ You can refer to this picture to understand the function and the processing and 
 
 For detailed commands instruction and introduction, please check:
 - [Preprocess](pre-process)
-  - [genome and annotations](pre-process/genome_and_annotations)
-  - [small RNA-seq mapping](pre-process/small_rna_mapping)
-  - [long RNA-seq mapping](pre-process/long_rna_mapping)
+  - [genome and annotations](pre-process/genome_and_annotations.md)
+  - [small RNA-seq mapping](pre-process/small_rna_mapping.md)
+  - [long RNA-seq mapping](pre-process/long_rna_mapping.md)
 - [exSEEK](exseek)
-  - [config file](exseek/configuration)
-  - [matrix processing](exseek/matrix_processing)
-  - [feature selection](exseek/feature_selection)
-  - [cluster configuration](exseek/cluster_configuration)
+  - [config file](exseek/configuration.md)
+  - [matrix processing](exseek/matrix_processing.md)
+  - [feature selection](exseek/feature_selection.md)
+  - [cluster configuration](exseek/cluster_configuration.md)
 - [utilities](utilities)
-  - [quality control](utilities/quality_control)
-  - [remove adapter](utilities/adapter_removal)
-  - [bigwig](utilities/bigwig)
-  - [igv_browser](utilities/igv_browser)
+  - [quality control](utilities/quality_control.md)
+  - [remove adapter](utilities/adapter_removal.md)
+  - [bigwig](utilities/bigwig.md)
+  - [igv_browser](utilities/igv_browser.md)
   
 
 
