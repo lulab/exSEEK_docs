@@ -69,10 +69,15 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 | `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
 
 > **Note** 
+>
 > for **compare\_groups.yaml**
+>
 > Every key-value pairs defines a compare group and a negative-positive class pair:
+>
 >```yaml
+>
 >Normal-CRC: ["Healthy Control", "Colorectal Cancer"]
+>
 >```
 
 #### Dataset configuration file
