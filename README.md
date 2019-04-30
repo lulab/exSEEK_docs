@@ -61,7 +61,7 @@ optional arguments:
 ```
 
 
-The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. 
+
 
 The positional arguments are exSEEK modules: 
 ```
@@ -69,6 +69,15 @@ quality_control,quality_control_clean,cutadapt,rename_fastq,fastq_to_fasta,prepa
 mapping,count_matrix,call_domains,merge_domains,combine_domains,normalization,feature_selection,
 differential_expression,evaluate_features,igv,update_sequential_mapping,update_singularity_wrappers
 ```
+
+The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands.
+
+
+
+For detailed commands instruction and introduction, please check:
+- [Preprocess](pre-process)
+
+
 
 > **Note**
 > We also recommend other alternatives for the pre-process, such as [exceRpt](https://github.com/gersteinlab/exceRpt) and ?, that are specifically developed for the process of exRNA-seq raw reads.
