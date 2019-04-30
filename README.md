@@ -70,6 +70,9 @@ The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK)
 You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands. **You should change your configuration file accordingly before running.** (See detailed [configuration file](exseek/configuration))
 
 
+![exSEEK modules](.gitbook/assets/exseek_modules.png)
+
+
 
 For detailed commands instruction and introduction, please check:
 - [Preprocess](pre-process)
