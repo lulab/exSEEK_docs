@@ -8,7 +8,7 @@
 
 - [Workflow](#Workflow)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage](#basic-usage-of-exSeek)
 - [Contact](#contact)
 - [Frequently asked Questions](#frequently-asked-questions)
 - [Copyright and License Information](#copyright-and-license-information)
