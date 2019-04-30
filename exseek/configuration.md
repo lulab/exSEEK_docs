@@ -20,7 +20,6 @@ small_rna: true
 count_method: [mirna_and_domains_rna, mirna_only]
 batch_indices: [1]
 normalization_method: ["TMM"]
-#batch_removal_method: ["limma", "ComBat", "null", "RUV", "RUVn"]
 batch_removal_method: ["limma", "null"]
 rna_types: [univec, rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, snRNA, srpRNA, tRNA, tucpRNA, Y_RNA]
 ```
