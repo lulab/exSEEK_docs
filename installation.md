@@ -1,6 +1,8 @@
 # Installation
 
-exSEEK contains a main program exseek.py which wraps several snakemake scripts. It relies on many softwares and environment. The easiest way to use exSEEK is downloading the docker image we provide: [exSEEK Docker Image](). You can also follow the instructions to manually set up the environment:
+- exSEEK contains a main program exseek.py which wraps several snakemake scripts. It relies on many softwares and environment. The easiest way to use exSEEK is downloading the docker image we provide: [exSEEK Docker Image](). 
+
+- You can also follow the instructions to manually set up the environment:
 
 ## Install exSEEK
 
