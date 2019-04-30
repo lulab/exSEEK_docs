@@ -70,12 +70,26 @@ mapping,count_matrix,call_domains,merge_domains,combine_domains,normalization,fe
 differential_expression,evaluate_features,igv,update_sequential_mapping,update_singularity_wrappers
 ```
 
-The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands.
+The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands. You should change your configuration file accordingly before running. (See detailed [configuration file](exseek/configuration))
 
 
 
 For detailed commands instruction and introduction, please check:
 - [Preprocess](pre-process)
+  - [genome and annotations](pre-process/genome_and_annotations)
+  - [small RNA-seq mapping](pre-process/small_rna_mapping)
+  - [long RNA-seq mapping](pre-process/long_rna_mapping)
+- [exSEEK](exseek)
+  - [config file](exseek/configuration)
+  - [matrix processing](exseek/matrix_processing)
+  - [feature selection](exseek/feature_selection)
+  - [cluster configuration](exseek/cluster_configuration)
+- [utilities](utilities)
+  - [quality control](utilities/quality_control)
+  - [remove adapter](utilities/adapter_removal)
+  - [bigwig](utilities/bigwig)
+  - [igv_browser](utilities/igv_browser)
+  
 
 
 
