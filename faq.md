@@ -4,9 +4,9 @@
 
 We have packaged everything into docker and singularity. The easiest and recommended way is via Singularity.
 
-You can refer to this doc's [Singularity part](https://github.com/lulab/exSeek/blob/master/docs/requirements.md)
+You can refer to this doc's [Singularity part](installation.md)
 
-## How to use exSeek
+## How to use exSEEK
 
 exSeek is an integrative tool for exRNA processing and feature selection. We use snakemake for parallel running and further integrate snakemake pipeline into one single command.
 
@@ -50,9 +50,9 @@ Then you can get plots of your mapping, processing and feature selection details
 
 ## When bugs appear:
 
-The quickest way is to create a [new issue](https://github.com/lulab/exSeek/issues)
+The quickest way is to create a [new issue](https://github.com/lulab/exSEEK/issues)
 
-If you want us to add more functions in exseek, please create a [new issue](https://github.com/lulab/exSeek/issues)
+If you want us to add more functions in exseek, please create a [new issue](https://github.com/lulab/exSEEK/issues)
 
 ## Why did some jobs occasionally fail with no extra error message except 'CalledProcessError'?
 
