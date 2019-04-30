@@ -1,6 +1,9 @@
 # Get Started
 
-## Simple Mode
+
+## Main Program
+
+**Every module can be run with a simple command:**
 
 Run `exseek.py --help` to get basic usage:
 
@@ -41,29 +44,19 @@ optional arguments:
 > * Other arguments are passed to _snakemake_
 > * Specify number of processes to run in parallel with _-j_
 
-## Advanced Mode
 
-![workflow](.gitbook/assets/whole_pipe.png)
 
-### Installation
+## Prepare input files
 
-Install required software packages according to [requirements](https://github.com/lulab/exSEEK_docs/tree/aa086213f438bb2de59ea29f54c3e5da8cda482d/requirements.md)
+You can follow the following instrucstions to prepare data and config files before running some certain modules. Suppose the root directory is `exSEEK`. You should prepare genome and annotation, 
 
-Download the scripts:
-
-```bash
-git clone https://github.com/lulab/exSeek-dev.git
-```
-
-### Input files
-
-#### Genome and annotation directory
+### Genome and annotation directory
 
 Download preprocessed genome annotations to `genome/hg38`
 
 Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 
-#### Input data files
+### Input data files
 
 | File name | Description |
 | :--- | :--- |
@@ -75,13 +68,12 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 | `${input_dir}/compare_groups.yaml` | A YAML file defining positive and negative classes. \(optional\) |
 | `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
 
-**compare\_groups.yaml**
-
-Every key-value pairs defines a compare group and a negative-positive class pair:
-
-```yaml
-Normal-CRC: ["Healthy Control", "Colorectal Cancer"]
-```
+> **Note** 
+> for **compare\_groups.yaml**
+> Every key-value pairs defines a compare group and a negative-positive class pair:
+>```yaml
+>Normal-CRC: ["Healthy Control", "Colorectal Cancer"]
+>```
 
 #### Dataset configuration file
 
