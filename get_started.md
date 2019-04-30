@@ -8,8 +8,11 @@
 - [Prepare input files](#prepare-input-files)
   - [Users starting from raw fastq data](#users-starting-from-raw-fastq-data)
     - [Genome and annotation directory](#genome-and-annotation-directory)
-  - [Frequently asked Questions](#frequently-asked-questions)
-  - [Copyright and License Information](#copyright-and-license-information)
+    - [Input data files](#input-data-files)
+  - [Users starting from a prepared expression matrix](#users-starting-from-a-prepared-expression-matrix)
+    - [Input data files](#input-data-files)
+  - [Dataset configuration file](#dataset-configuration-file)
+  - [Cluster configuration file](#cluster-configuration-file)
 
 ## Main Program
 
@@ -84,7 +87,7 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 For example, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
 
 
-### For users starting from a prepared expression matrix
+### Users starting from a prepared expression matrix
 you could ignore the genome and annotation part and prepare the following input 
 
 #### Input data files
