@@ -2,8 +2,16 @@
 
 **Every module can be run with a simple command using main program**. You should prepare input files (genome and annotation, input data files, dataset configuration file) before running.
 
-## Main Program
+## Table of Contents
 
+- [Main Program](#main-program)
+- [Prepare input files](#prepare-input-files)
+  - [Users starting from raw fastq data](#users-starting-from-raw-fastq-data)
+    - [Genome and annotation directory](#genome-and-annotation-directory)
+  - [Frequently asked Questions](#frequently-asked-questions)
+  - [Copyright and License Information](#copyright-and-license-information)
+
+## Main Program
 
 
 Run `exseek.py --help` to get basic usage:
@@ -53,7 +61,7 @@ You can follow the following instrucstions to prepare data and config files befo
 
 Suppose the root directory is `exSEEK`. The dataset is called `cfRNA`.
 
-### For users starting from raw fastq data.
+### Users starting from raw fastq data
 
 #### Genome and annotation directory
 
