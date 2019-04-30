@@ -24,7 +24,7 @@ For easy intallation, you can use the docker image we provide: [exSEEK Docker Im
 If you would like to manually set up the environment, please follow the [requirements](https://exseek.gitbook.io/docs/installation)
 
 
-## Basic usage of exSeek
+## exSEEK modules
 
 Run `exseek.py --help` to get basic usage:
 
@@ -63,15 +63,12 @@ optional arguments:
 ```
 
 
-
-
 The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. 
 
-You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands. **You should change your configuration file accordingly before running.** (See detailed [configuration file](exseek/configuration))
+You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands.
 
 
 ![exSEEK modules](.gitbook/assets/exseek_modules.png)
-
 
 
 For detailed commands instruction and introduction, please check:
