@@ -8,7 +8,7 @@ We have try to make it as simple as possible but you may still spend some time t
 
 https://github.com/james20141606/exSEEK_training/
 
-[first training](5.2_training.html)
+[first training](5.2_training.ipynb)
 
 
 
