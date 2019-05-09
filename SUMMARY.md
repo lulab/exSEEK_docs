@@ -17,5 +17,7 @@
   * [Adapter Removal](utilities/adapter_removal.md)
   * [Generate BigWig Files](utilities/bigwig.md)
   * [IGV Browser](utilities/igv_browser.md)
+  * [jupyter utilities](utilities/jupyter_utilities.md)
+    * [first training](utilities/first_training.md)
 * [Frequently Asked Questions](faq.md)
 

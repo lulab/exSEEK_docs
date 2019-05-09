@@ -1,5 +1,31 @@
 # Configuration File Reference
 
+## Example config files
+
+```yaml
+# file paths
+annotation_dir: genome/hg38
+genome_dir: genome/hg38
+output_dir: output/cfRNA
+temp_dir: tmp
+data_dir: data/cfRNA
+
+# general parameters
+threads_compress: 1
+
+# mapping parameters
+aligner: bowtie2
+paired_end: false
+small_rna: true
+count_method: [mirna_and_domains_rna, mirna_only]
+batch_indices: [1]
+normalization_method: ["TMM"]
+batch_removal_method: ["limma", "null"]
+rna_types: [univec, rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, snRNA, srpRNA, tRNA, tucpRNA, Y_RNA]
+```
+
+
+## Default config files with all parameters
 ```yaml
 # RNA types for sequential mapping in small-RNA pipeline
 rna_types: [rRNA, lncRNA, miRNA, mRNA, piRNA, snoRNA, 

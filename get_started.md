@@ -1,6 +1,21 @@
 # Get Started
 
-## Simple Mode
+**Every module can be run with a simple command using main program**. You should prepare input files (genome and annotation, input data files, dataset configuration file) before running.
+
+## Table of Contents
+
+- [Main Program](#main-program)
+- [Prepare input files](#prepare-input-files)
+  - [Users starting from raw fastq data](#users-starting-from-raw-fastq-data)
+    - [Genome and annotation directory](#genome-and-annotation-directory)
+    - [Input data files](#input-data-files)
+  - [Users starting from a prepared expression matrix](#users-starting-from-a-prepared-expression-matrix)
+    - [Input data files](#input-data-files)
+  - [Dataset configuration file](#dataset-configuration-file)
+  - [Cluster configuration file](#cluster-configuration-file)
+
+## Main Program
+
 
 Run `exseek.py --help` to get basic usage:
 
@@ -41,21 +56,15 @@ optional arguments:
 > * Other arguments are passed to _snakemake_
 > * Specify number of processes to run in parallel with _-j_
 
-## Advanced Mode
 
-![workflow](.gitbook/assets/whole_pipe.png)
 
-### Installation
+## Prepare input files
 
-Install required software packages according to [requirements](https://github.com/lulab/exSEEK_docs/tree/aa086213f438bb2de59ea29f54c3e5da8cda482d/requirements.md)
+You can follow the following instrucstions to prepare data and config files before running some certain modules. **You should prepare genome and annotation, put the input data in the right directory, and fill in the data configuration file correcly.**
 
-Download the scripts:
+Suppose the root directory is `exSEEK`. The dataset is called `cfRNA`.
 
-```bash
-git clone https://github.com/lulab/exSeek-dev.git
-```
-
-### Input files
+### Users starting from raw fastq data
 
 #### Genome and annotation directory
 
@@ -75,21 +84,44 @@ Refer to the [documentation](pre-process/genome_and_annotations.md) for details.
 | `${input_dir}/compare_groups.yaml` | A YAML file defining positive and negative classes. \(optional\) |
 | `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
 
-**compare\_groups.yaml**
+For example, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
 
-Every key-value pairs defines a compare group and a negative-positive class pair:
 
-```yaml
-Normal-CRC: ["Healthy Control", "Colorectal Cancer"]
-```
+### Users starting from a prepared expression matrix
+you could ignore the genome and annotation part and prepare the following input 
 
-#### Dataset configuration file
+#### Input data files
+
+| File name | Description |
+| :--- | :--- |
+| `${count_matrix_dir}/matrix.txt` | expression matrix |
+| `${input_dir}/sample_ids.txt` | A text file with one sample ID per line. |
+| `${input_dir}/sample_classes.txt` | A tab-deliminated file \(with header\) with two columns: sample\_id, label \(optional\) |
+| `${input_dir}/batch_info.txt` | A comma-deliminated file \(with header\) with at least two columns: sample\_id, batch1, batch2, ... \(optional\) |
+| `${input_dir}/compare_groups.yaml` | A YAML file defining positive and negative classes. \(optional\) |
+| `${config_dir}/${dataset}.yaml` | A YAML file for configuration parameters for the dataset |
+
+For example, the `${count_matrix_dir}/matrix.txt` could be `output/cfRNA/count_matrix/matrix.txt`, the `${input_dir}` could be `data/cfRNA/`, the `${config_dir}/${dataset}.yaml` could be `config/cfRNA.yaml`.
+
+
+> **Note** 
+>
+> for **compare\_groups.yaml**, every key-value pairs defines a compare group and a negative-positive class pair:
+>
+>```yaml
+>
+>Normal-HCC: ['Normal', 'stage_A,stage_B,stage_C']
+>Normal-stage_A: ['Normal', 'stage_A']
+>
+>```
+
+### Dataset configuration file
 
 All parameters are specified in a configuration file in [YAML](https://en.wikipedia.org/wiki/YAML) format.
 
-The default configuration file is \(snakemake/default\_config.yaml\).
+The default configuration file is \(snakemake/default\_config.yaml\). It contains all possible parameters to change. You do not need to change the default config file. 
 
-Example configuration files can be found in _config/_.
+You should create a config file for your own dataset as `${config_dir}/${dataset}.yaml` (for example `config/cfRNA.yaml`). Example configuration files can be found in [exSEEK configuration](exseek/configuration.md) 
 
 The parameter values in the configuration file can also be overrided through the _--config_ option in [snakemake](https://snakemake.readthedocs.io/en/stable/executable.html).
 
@@ -104,7 +136,7 @@ The following parameters should be changed:
 | aligner | Mapping software | bowtie2 |
 | adaptor | 3' adaptor sequence for single-end RNA-seq | AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC |
 
-#### Cluster configuration file
+### Cluster configuration file
 
 Please refer the [link](https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#cluster-configuration) for descriptions of cluster configuration file.
 
