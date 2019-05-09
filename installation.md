@@ -32,6 +32,7 @@ conda install -y numpy scipy scikit-learn 'openssl<1.1'
 conda install -y pandas matplotlib seaborn
 conda install -y tqdm snakemake h5py bokeh
 conda install -y umap jinja2
+pip install scikit-rebate
 pip install mlxtend 
 pip install flask Flask-AutoIndex
 pip install multiqc
@@ -64,7 +65,7 @@ options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 # From CRAN
 install.packages(c('devtools', 'sva', 'VGAM', 'argparse', 'magrittr', 'readr', 'mvoutlier', 
-    'ggpubr', 'fastqr', 'ggfortify', 'survminer'))
+    'ggpubr', 'fastqr', 'ggfortify', 'survminer', 'SIS'))
 # From Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
