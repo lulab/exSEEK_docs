@@ -281,7 +281,7 @@ with positive class and negative class specified with the `--positive-class` and
 finishing differential expression, the script outputs a table with at least three columns: feature_name, log2FoldChange and padj (adjusted p-value).
 
 Currently, the script implemented the following DE methods: deseq2, edger_exact, edger_glmqlf, edger_glmlrt,
- wilcox, limma and ttest (unpaired t-test).
+ wilcox \(Wilcoxon rank-sum test, or Mann–Whitney U test\), limma and ttest \(unpaired t-test\).
 
 For DESeq2, edgeR and wilcox, the input expression matrix is assumed to be a read counts matrix.
 For edgeR and limma, a normalization can be specified: RLE, CPM, TMM or upperquartile. DESeq2 uses its own normalization methods.
@@ -348,6 +348,9 @@ hsa-let-7b-5p|miRNA|hsa-let-7b-5p|hsa-let-7b-5p|hsa-let-7b-5p|0|22      29872.10
 hsa-let-7c-3p|miRNA|hsa-let-7c-3p|hsa-let-7c-3p|hsa-let-7c-3p|0|22      2.60866963317644        1.38121239691098
 0.478335824437209       2.88753701133729        0.00388270923167969     0.00779770710561867
 ```
+
+The `score_type` parameter in `DiffExpFilter` specifies how to rank features. Three values are possible:
+`neglogp`, `pi_value`, `log2fc`. `pi_value` is a combined score of `log2fc` and `neglogp`.
 
 **wrapper-based feature selector**
 If the feature selector is wrapper-based, it requires a classifier to perform feature selection.
@@ -426,6 +429,10 @@ sample_weight: balanced
 
 Note that there are 5 varibles for a classifier: `classifier`, `classifier_params`, `grid_search`, `grid_search_params`, `sample_weight`.
 Only `classifier` is required.
+
+sample_weight: when set to 'balanced', it computes sample weight using the `sklearn.utils.class_weight.compute_sample_weight` function.
+Balanced sample weights are inversely proportional to `n_samples / (n_classes * np.bincount(y))`. This is a simple way to handle 
+imbalanced classes.
 
 **Grid search for hyper-parameter optimization**
 
@@ -551,7 +558,11 @@ You can set possible values for each variable in `config/machine_learning.yaml`.
 
 **n_features_to_select**
 
-Global variable that affects overrides all selectors.
+Global variable that affects overrides all selectors. If you want to try multiple values, you can set:
+
+```yaml
+n_features_to_select: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 
 **selectors**
 
@@ -601,6 +612,7 @@ classifiers:
         max_depth: [3, 4, 5]
 ```
 
+The complete configuration file can be found in (https://github.com/lulab/exSEEK/blob/master/config/machine_learning.yaml).
 ## Output directories of exSEEK feature selection
 
 Feature selection results using one combination of parameters are saved in a separate directory:
