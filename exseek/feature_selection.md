@@ -478,6 +478,16 @@ Many files are generated in the output directory after the above command:
 | `metrics.test.txt` | Same format with `metrics.train.txt` on test data. |
 | `cross_validation.h5` | Cross-validation details in HDF5 format. |
 
+**Cross validation details \(cross\_validation.h5\)**
+
+| Dataset name | Dimension | Description |
+| :--- | :--- | :--- |
+| feature\_selection | \(n\_splits, n\_features\) | Binary matrix indicating features selected in each cross-validation split |
+| labels | \(n\_samples,\) | True class labels |
+| predicted\_labels | \(n\_splits, n\_samples\) | Predicted class labels on all samples |
+| predictions | \(n\_splits, n\_samples\) | Predicted probabilities of the positive class \(or decision function for SVM\) |
+| train\_index | \(n\_splits, n\_samples\) | Binary matrix indicating training samples in each cross-validation split |
+
 ## Run combinations of selectors and classifiers feature selection in batch
 
 Assume that we have already run `normalization` module.
@@ -561,21 +571,6 @@ Feature selection results using one combination of parameters are saved in a sep
 ${output_dir}/cross_validation/${preprocess_method}.${count_method}/${compare_group}/${classifier}.${n_select}.${selector}.${fold_change_filter_direction}
 ```
 
-## Summary table of exSEEK feature selection
-
-After finishing `exseek.py feature_selection`, a summary directory is created: `output/$dataset/summary/cross_validation`
-
-Two files are generated: `metrics.train.txt` and `metrics.test.txt`. `metrics.test.txt` contains performance metrics computed on test data.
-
-Example output file contents of `metrics.test.txt`:
-
-| baseMean | log2FoldChange | lfcSE | stat | pvalue | padj |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| hsa-let-7a-3p|miRNA|hsa-let-7a-3p|hsa-let-7a-3p|hsa-let-7a-3p|0|21 | 612.040526671729 | 3.10679875843708 | 1.03430534034172 | 3.00375395665136 | 0.00266670886908437 | 0.00553987261835591 |
-| hsa-let-7a-5p|miRNA|hsa-let-7a-5p|hsa-let-7a-5p|hsa-let-7a-5p|0|22 | 31411.1827219365 | 3.66665458899661 | 0.726406098332838 | 5.04766493207021 | 4.4724262801185e-07 | 1.77064089614528e-06 |
-| hsa-let-7b-3p|miRNA|hsa-let-7b-3p|hsa-let-7b-3p|hsa-let-7b-3p|0|22 | 115.821202185891 | 3.93146114221439 | 1.08488185382557 | 3.62386109450633 | 0.000290237520297458 | 0.000717057403087837 |
-| hsa-let-7b-5p|miRNA|hsa-let-7b-5p|hsa-let-7b-5p|hsa-let-7b-5p|0|22 | 29872.1083869283 | 2.58958074077096 | 1.61681717531621 | 1.60165340912122 | 0.109232273268584 | 0.154723343393663 |
-
 **Variables in file patterns**
 
 | Variable | Descrpition |
@@ -590,13 +585,64 @@ Example output file contents of `metrics.test.txt`:
 | `fold_change_filter_direction` | Direction of fold change for filtering features. Three possible values: `up`, `down` and `any` |
 
 
-**Cross validation details \(cross\_validation.h5\)**
+## Summary table of exSEEK feature selection
 
-| Dataset name | Dimension | Description |
-| :--- | :--- | :--- |
-| feature\_selection | \(n\_splits, n\_features\) | Binary matrix indicating features selected in each cross-validation split |
-| labels | \(n\_samples,\) | True class labels |
-| predicted\_labels | \(n\_splits, n\_samples\) | Predicted class labels on all samples |
-| predictions | \(n\_splits, n\_samples\) | Predicted probabilities of the positive class \(or decision function for SVM\) |
-| train\_index | \(n\_splits, n\_samples\) | Binary matrix indicating training samples in each cross-validation split |
+After finishing `exseek.py feature_selection`, a summary directory is created: `output/$dataset/summary/cross_validation`
+
+Two files are generated: `metrics.train.txt` and `metrics.test.txt`. `metrics.test.txt` contains performance metrics computed on test data.
+
+Example output file contents of `metrics.test.txt`:
+
+```
+classifier      n_features      selector        fold_change_direction   compare_group   filter_method   imputation
+normalization   batch_removal   count_method    preprocess_method       split   accuracy        average_precision
+f1_score        precision       recall  roc_auc
+LogRegL2        10      DiffExp_TTest   any     Normal-HCC      filter  null    Norm_RLE        Batch_limma_1   mirna_and_domains_rna   filter.null.Norm_RLE.Batch_limma_1      0       0.7142857142857143      0.1504884004884005      0.0
+0.0     0.0     0.0
+LogRegL2        10      DiffExp_TTest   any     Normal-HCC      filter  null    Norm_RLE        Batch_limma_1   mirna_and_domains_rna   filter.null.Norm_RLE.Batch_limma_1      1       0.9285714285714286      0.75    0.8     1.0     0.6666666666666666      0.7272727272727272
+```
+
+Summarize metrics as a matrix using Python (Jupyter is recommended):
+
+```python
+import pandas as pd
+summary = pd.read_table('example/output/summary/cross_validation/metrics.test.txt', sep='\t')
+df = summary.query('(compare_group == "Normal-HCC") and (normalization == "Norm_RLE") and (batch_removal == "Batch_limma_1") and (n_features == 10) and (count_method == "mirna_and_domains_rna")')\
+    .groupby(['classifier', 'selector'])['roc_auc'].mean().unstack()
+df
+```
+The above code first select a subset of matrix with the following filters:
+
+* `compare_group == "Normal-HCC"`: only compares Normal with HCC
+* `normalization == "Norm_RLE"`: use RLE as normalization method
+* `batch_removal == "Batch_limma_1"`: use limma as batch effect removal method (remove batch 1)
+* `n_features == 10`: only select 10 features at maximum
+* `count_method == "mirna_and_domains_rna"`: use miRNA + ncRNA domains as features
+
+Then AUROC \(`roc_auc`\) across cross-validation runs are averaged and create a matrix with classifiers as rows and selectors as columns:
+
+| selector | DiffExp_TTest | MaxFeatures_ElasticNet | MaxFeatures_LogRegL1 | MaxFeatures_LogRegL2 | MaxFeatures_RandomForest | MultiSURF | ReliefF | SIS | SURF |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| DecisionTree | 0.860606 | 0.904848 | 0.856061 | 0.886364 | 0.862727 | 0.931818 | 0.904848 | 0.880303 | 0.927879 |
+| LogRegL2 | 0.800000 | 0.660606 | 0.794545 | 0.753333 | 0.741212 | 0.627273 | 0.744242 | 0.727879 | 0.693939 |
+| MLP | 0.847273 | 0.756970 | 0.790303 | 0.790909 | 0.804848 | 0.756970 | 0.701212 | 0.752121 | 0.766061 |
+| RBFSVM | 0.843030 | 0.903030 | 0.947273 | 0.928485 | 0.952121 | 0.961818 | 0.965455 | 0.916364 | 0.956970 |
+| RandomForest | 0.988485 | 0.978788 | 0.981212 | 0.980606 | 0.979394 | 0.984545 | 0.981212 | 0.985455 | 0.986061 |
+
+Similarly, you can summarize AUROC using only miRNA features:
+```python
+df = summary.query('(compare_group == "Normal-HCC") and (normalization == "Norm_RLE") and (batch_removal == "Batch_limma_1") and (n_features == 10) and (count_method == "mirna_only")')\
+    .groupby(['classifier', 'selector'])['roc_auc'].mean().unstack()
+```
+
+The output table:
+
+| selector | DiffExp_TTest | MaxFeatures_ElasticNet | MaxFeatures_LogRegL1 | MaxFeatures_LogRegL2 | MaxFeatures_RandomForest | MultiSURF | ReliefF | SIS | SURF |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| DecisionTree | 0.735152 | 0.929394 | 0.864848 | 0.933939 | 0.897879 | 0.904545 | 0.900303 | 0.892121 | 0.928485 |
+| LogRegL2 | 0.573636 | 0.743030 | 0.828485 | 0.818182 | 0.716364 | 0.807879 | 0.775152 | 0.828485 | 0.807879 |
+| MLP | 0.765455 | 0.813333 | 0.823030 | 0.825455 | 0.903030 | 0.881818 | 0.946667 | 0.828485 | 0.859394 |
+| RBFSVM | 0.816970 | 0.938788 | 0.964242 | 0.979394 | 0.981818 | 0.976364 | 0.983030 | 0.979394 | 0.980606 |
+| RandomForest | 0.954545 | 0.983636 | 0.990303 | 0.983030 | 0.985758 | 0.987273 | 0.992121 | 0.988788 | 0.989091 |
+
 
