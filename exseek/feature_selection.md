@@ -569,10 +569,12 @@ Two files are generated: `metrics.train.txt` and `metrics.test.txt`. `metrics.te
 
 Example output file contents of `metrics.test.txt`:
 
-| classifier |n_features |selector |fold_change_direction |compare_group |filter_method |imputation |normalization |batch_removal |count_method |preprocess_method |split |accuracy |average_precision |f1_score |precision |recall |roc_auc |
-| LogRegL2 |10 |DiffExp_TTest |any |Normal-HCC |filter |null |Norm_RLE |Batch_limma_1 |mirna_and_domains_rna |filter.null.Norm_RLE.Batch_limma_1 |0 |0.7142857142857143 |0.1504884004884005 |0.0 |0.0 |0.0 |0.0 |
-| LogRegL2 |10 |DiffExp_TTest |any |Normal-HCC |filter |null |Norm_RLE |Batch_limma_1 |mirna_and_domains_rna |filter.null.Norm_RLE.Batch_limma_1 |1 |0.9285714285714286 |0.75 |0.8 |1.0 |0.6666666666666666 |0.7272727272727272 |
-| LogRegL2 |10 |DiffExp_TTest |any |Normal-HCC |filter |null |Norm_RLE |Batch_limma_1 |mirna_and_domains_rna |filter.null.Norm_RLE.Batch_limma_1 |2 |0.6428571428571429 |0.75 |0.4444444444444444 |0.3333333333333333 |0.6666666666666666 |0.7272727272727272 |
+| baseMean | log2FoldChange | lfcSE | stat | pvalue | padj |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| hsa-let-7a-3p|miRNA|hsa-let-7a-3p|hsa-let-7a-3p|hsa-let-7a-3p|0|21 | 612.040526671729 | 3.10679875843708 | 1.03430534034172 | 3.00375395665136 | 0.00266670886908437 | 0.00553987261835591 |
+| hsa-let-7a-5p|miRNA|hsa-let-7a-5p|hsa-let-7a-5p|hsa-let-7a-5p|0|22 | 31411.1827219365 | 3.66665458899661 | 0.726406098332838 | 5.04766493207021 | 4.4724262801185e-07 | 1.77064089614528e-06 |
+| hsa-let-7b-3p|miRNA|hsa-let-7b-3p|hsa-let-7b-3p|hsa-let-7b-3p|0|22 | 115.821202185891 | 3.93146114221439 | 1.08488185382557 | 3.62386109450633 | 0.000290237520297458 | 0.000717057403087837 |
+| hsa-let-7b-5p|miRNA|hsa-let-7b-5p|hsa-let-7b-5p|hsa-let-7b-5p|0|22 | 29872.1083869283 | 2.58958074077096 | 1.61681717531621 | 1.60165340912122 | 0.109232273268584 | 0.154723343393663 |
 
 **Variables in file patterns**
 
