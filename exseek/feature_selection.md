@@ -32,6 +32,11 @@ Command line wrapper for scikit-learn. You can quickly test machine learning alg
 
 Link: (https://skll.readthedocs.io/en/latest/index.html)
 
+*imbalanced-learn*
+
+Techniques for handling datasets with imbalanced class ratio. Including over-sampling, under-sampling and ensemble methods.
+
+Link: (https://imbalanced-learn.readthedocs.io/en/stable/)
 
 *Other machine learning packages*
 
