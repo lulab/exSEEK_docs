@@ -94,7 +94,8 @@ exSEEK provides a script `machine_learning.py` for various machine-learning task
 
 Command-line usage of `machine_learning.py`:
 
-```usage: machine_learning.py run_pipeline [-h] --matrix FILE --sample-classes
+```
+usage: machine_learning.py run_pipeline [-h] --matrix FILE --sample-classes
                                         FILE [--positive-class STRING]
                                         [--negative-class STRING]
                                         [--features FILE] --config FILE
