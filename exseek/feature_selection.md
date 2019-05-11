@@ -92,6 +92,38 @@ sample_id       label
 The objective of feature selection is to find a small subset of features that robustly distinguishes between normal and cancer samples.
 exSEEK provides a script `machine_learning.py` for various machine-learning tasks including feature selection, cross validation and prediction.
 
+Command-line usage of `machine_learning.py`:
+
+```usage: machine_learning.py run_pipeline [-h] --matrix FILE --sample-classes
+                                        FILE [--positive-class STRING]
+                                        [--negative-class STRING]
+                                        [--features FILE] --config FILE
+                                        --output-dir DIR
+                                        [--log-level LOG_LEVEL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --matrix FILE, -i FILE
+                        input feature matrix (rows are samples and columns are
+                        features
+  --sample-classes FILE
+                        input file containing sample classes with 2 columns:
+                        sample_id, sample_class
+  --positive-class STRING
+                        comma-separated list of sample classes to use as
+                        positive class
+  --negative-class STRING
+                        comma-separates list of sample classes to use as
+                        negative class
+  --features FILE       input file containing subset of feature names
+  --config FILE, -c FILE
+                        configuration file of parameters in YAML format
+  --output-dir DIR, -o DIR
+                        output directory
+  --log-level LOG_LEVEL
+                        logging level
+```
+
 The basic workflow of machine learning is:
 
 **Read input data matrix and class labels**
