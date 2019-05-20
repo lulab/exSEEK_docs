@@ -8,6 +8,7 @@
   * [Small RNA-seq mapping](pre-process/small_rna_mapping.md)
   * [Long RNA-seq mapping](pre-process/long_rna_mapping.md)
 * [exSEEK](exseek/README.md)
+  * [Plots Utilities](exseek/plot-utilities.md)
   * [Matrix processing](exseek/matrix_processing.md)
   * [Feature Selection](exseek/feature_selection.md)
   * [Run on a cluster](exseek/cluster_configuration.md)
