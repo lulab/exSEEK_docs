@@ -47,11 +47,11 @@ pip install multiqc
 List of all available Bioconda packages: \([https://bioconda.github.io/recipes.html](https://bioconda.github.io/recipes.html)\)
 
 ```bash
-conda install -y bedtools samtools star subread bowtie2
-conda install -y rsem bamtools cutadapt picard gffread gffcompare
-conda install -y ucsc-bedtogenepred ucsc-genepredtogtf ucsc-bedgraphtobigwig ucsc-bigwigtobedgraph
-conda install -y htseq fastx_toolkit biopython rpy2
-conda install -y flexbar
+conda install -c bioconda -y bedtools samtools star subread bowtie2
+conda install -c bioconda -y rsem bamtools cutadapt picard gffread gffcompare
+conda install -c bioconda -y ucsc-bedtogenepred ucsc-genepredtogtf ucsc-bedgraphtobigwig ucsc-bigwigtobedgraph
+conda install -c bioconda -y htseq fastx_toolkit biopython
+conda install -c bioconda -y flexbar
 ```
 
 ### Install Ubuntu packages
