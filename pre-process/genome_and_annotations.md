@@ -290,6 +290,8 @@ cut -f1,2 genome/hg38/fasta/spikein_small.fa.fai > genome/hg38/chrom_sizes/spike
     awk 'BEGIN{OFS="\t";FS="\t"}{print $1,0,$2,$1,0,"+",$1,$1,$1,$1,"spikein","spikein","spikein"}' genome/hg38/fasta/spikein_small.fa.fai
 } > genome/hg38/transcript_table/spikein_small.txt
 bowtie2-build genome/hg38/fasta/spikein_small.fa genome/hg38/index/bowtie2/spikein_small
+STAR --runMode genomeGenerate --genomeSAindexNbases 10 --genomeChrBinNbits 7 \
+    --genomeDir genome/hg38/index/star/spikein_long/ --genomeFastaFiles genome/hg38/fasta/spikein_long.fa
 ```
 
 ### UniVec
@@ -303,6 +305,7 @@ cut -f1,2 genome/hg38/fasta/univec.fa.fai > genome/hg38/chrom_sizes/univec
     awk 'BEGIN{OFS="\t";FS="\t"}{print $1,0,$2,$1,0,"+",$1,$1,$1,$1,"univec","univec","univec"}' genome/hg38/fasta/univec.fa.fai
 } > genome/hg38/transcript_table/univec.txt
 bowtie2-build genome/hg38/fasta/univec.fa genome/hg38/index/bowtie2/univec
+STAR --runMode genomeGenerate --genomeSAindexNbases 10 --genomeChrBinNbits 7 --genomeDir genome/hg38/index/star/univec/ --genomeFastaFiles genome/hg38/fasta/univec.fa
 ```
 
 ### Intron
@@ -346,6 +349,11 @@ cat $(for track in $tracks;do echo genome/hg38/bed/promoter.${track}.bed;done) \
 cat $(for track in $tracks;do echo genome/hg38/bed/enhancer.${track}.bed;done) \
     | bedtools sort | bedtools merge -d 1 \
     | awk 'BEGIN{OFS="\t";FS="\t"}{print $1,$2,$3,"enhancer",0,"."}' > genome/hg38/bed/enhancer.merged.bed
+# convert unstranded bed to stranded bed (duplicate each record into two records with "+" and "-")
+awk 'BEGIN{OFS="\t";FS="\t"}{print $1,$2,$3,$4,$5,"+";print $1,$2,$3,$4,$5,"-"}' \
+    genome/hg38/bed/promoter.merged.bed > genome/hg38/bed/promoter.stranded.bed
+awk 'BEGIN{OFS="\t";FS="\t"}{print $1,$2,$3,$4,$5,"+";print $1,$2,$3,$4,$5,"-"}' \
+    genome/hg38/bed/enhancer.merged.bed > genome/hg38/bed/enhancer.stranded.bed
 ```
 
 ### Repeats
