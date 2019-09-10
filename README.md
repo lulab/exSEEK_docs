@@ -81,11 +81,6 @@ For detailed commands instruction and introduction, please check:
   - [matrix processing](exseek/matrix_processing.md)
   - [feature selection](exseek/feature_selection.md)
   - [cluster configuration](exseek/cluster_configuration.md)
-- [utilities](utilities)
-  - [quality control](utilities/quality_control.md)
-  - [remove adapter](utilities/adapter_removal.md)
-  - [bigwig](utilities/bigwig.md)
-  - [igv_browser](utilities/igv_browser.md)
   
 
 
