@@ -19,7 +19,7 @@
 
 ## Installation
 
-For easy intallation, you can use the docker image we provide: [exSEEK Docker Image]()
+For easy intallation, you can use the docker image we provide: [exSEEK Docker Image](https://hub.docker.com/r/ltbyshi/exseek)
 
 If you would like to manually set up the environment, please follow the [requirements](https://exseek.gitbook.io/docs/installation)
 
