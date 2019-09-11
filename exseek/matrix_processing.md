@@ -1,7 +1,5 @@
 # Matrix processing
 
-![](../.gitbook/assets/pipeline_matrix.png)
-
 ```bash
 usage: bin/matrix-process.R [-h] -s STEP -i INPUT -c CLASS -b BATCH
                             --filterout FILTEROUT --imputeout IMPUTEOUT
