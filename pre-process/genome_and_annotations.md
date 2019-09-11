@@ -29,18 +29,18 @@
 | `fasta/rRNA.fa` | rRNA sequences in NCBI RefSeq |
 | `fasta/miRNA.fa` | miRNA hairpin \(precursor\) sequences in miRBase |
 | `fasta/piRNA.fa` | piRNA sequences in piRNABank |
-| `fasta/${rna_type}.fa` | Longest isoform for each gene extracted from GENCODE annotations |
+| `fasta/${rna_type}.fa` | longest isoform for each gene extracted from GENCODE annotations |
 | `gtf_by_biotype/${rna_type}.gtf` | separate GTF files for each RNA type |
 | `gtf/gencode.gtf` | GENCODE GTF file |
 | `gtf/mitranscriptome.gtf` | Mitranscriptome GTF file |
 | `gtf/long_RNA.gtf` | GTF file of Long RNA \(GENCODE + Mitranscriptome - miRNA\) |
 | `gtf/piRNABank.gtf` | piRNA GTF file from piRNABank |
 | `gtf/gencode_tRNA.gtf` | GTF file of tRNA from GENCODE |
-| `transcript_table/all.txt` | Table of transcript information \(gene\_id, transcript\_id\) |
+| `transcript_table/all.txt` | table of transcript information \(gene\_id, transcript\_id\) |
 | `rsem_index/bowtie2/${rna_type}` | RSEM index files for each RNA type \(built using the longest transcripts\) |
-| `rsem_index/bowtie2/${rna_type}.transcripts.fa` | Sequence for each RNA type \(longest transcripts\) |
+| `rsem_index/bowtie2/${rna_type}.transcripts.fa` | sequence for each RNA type \(longest transcripts\) |
 | `gtf_longest_transcript/${rna_type}.gtf` | GTF files for the longest isoforms from GENCODE and Mitranscriptome |
-| `bed/*.bed` | Transcript in BED12 format extracted from GTF files in \`gtf/\*.gtf |
+| `bed/*.bed` | transcript in BED12 format extracted from GTF files in \`gtf/\*.gtf |
 | `index/bowtie2/${rna_type}` | STAR index for transcripts |
 | `index/star/${rna_type}` | STAR index for transcripts |
 | `long_index/star/` | STAR index including splicing junctions of long RNA |
