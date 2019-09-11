@@ -8,7 +8,6 @@
 
 - [Installation](#installation)
 - [Usage](#basic-usage-of-exseek)
-- [Contact](#contact)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Copyright and License Information](#copyright-and-license-information)
 
@@ -20,7 +19,7 @@ For easy installation, you can use the docker image we provide: [exSEEK Docker I
 Alternatively, you can use use singularity or udocker to run the container for Linux kernel < 3 or if you don't have permission to use docker.
 
 
-## exSEEK modules
+## Usage
 
 Run `exseek.py --help` to get basic usage:
 
