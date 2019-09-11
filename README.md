@@ -19,7 +19,7 @@
 
 ## Installation
 
-For easy intallation, you can use the docker image we provide: [exSEEK Docker Image](https://hub.docker.com/r/ltbyshi/exseek)
+For easy installation, you can use the docker image we provide: [exSEEK Docker Image](https://hub.docker.com/r/ltbyshi/exseek)
 
 If you would like to manually set up the environment, please follow the [requirements](https://exseek.gitbook.io/docs/installation)
 
@@ -86,7 +86,7 @@ For detailed commands instruction and introduction, please check:
 
 
 > **Note**
-> We also recommend other alternatives for the pre-process, such as [exceRpt](https://github.com/gersteinlab/exceRpt) and ?, that are specifically developed for the process of exRNA-seq raw reads.
+> We also recommend other alternatives for the pre-process, such as [exceRpt](https://github.com/gersteinlab/exceRpt), that is specifically developed for the process of exRNA-seq raw reads.
 > * Other arguments are passed to *snakemake*
 > * Specify number of processes to run in parallel with *-j*
 
@@ -99,6 +99,6 @@ For detailed commands instruction and introduction, please check:
 ## Copyright and License Information
 Copyright (C) 2019 Tsinghua University, Beijing, China 
 
-Authors: Binbin Shi, Jingyi Cao, Xupeng Chen, and Zhi John Lu 
+Authors: Binbin Shi, Xupeng Chen, Jingyi Cao and Zhi John Lu 
 
 This program is licensed with commercial restriction use license. Please see the [LICENSE](http://exseek.ncrnalab.org/LICEN) file for details.
