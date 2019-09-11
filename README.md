@@ -83,7 +83,7 @@ For detailed commands instruction and introduction, please check:
 
 ## Frequently Asked Questions
 
-[FAQs]()
+[FAQs](https://github.com/lulab/exSEEK_docs/blob/master/faq.md)
 
 
 ## Copyright and License Information
