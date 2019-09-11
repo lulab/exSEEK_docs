@@ -1,4 +1,4 @@
-# exSEEK
+# exSEEK main module
 
 In exSEEK module (our main module), we provide tools for long/small exRNA-seq expression matrix processing (filtering, normalization and batch removal) and feature selection. We also provide a tool to evaluate known biomarkers performance.
 
