@@ -59,12 +59,7 @@ optional arguments:
 ```
 
 
-The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. 
-
-You can refer to this picture to understand the function and the processing and analyzing steps of exSEEK. Then you can decide where to begin and run the related commands.
-
-
-![exSEEK modules](.gitbook/assets/exseek_modules.png)
+The [main program of exSEEK](https://github.com/lulab/exSEEK/tree/master/exSEEK) starts from a data matrix of gene expression (read counts of each gene in each sample). Meanwhile, we provide some pipelines and QC steps for the [pre-process](https://github.com/lulab/exSEEK/tree/master/pre-process) of exRNA-seq (including long and short  cfRNA-seq/exoRNA-seq) raw data. You can decide where to begin and run the related commands.
 
 
 For detailed commands instruction and introduction, please check:
@@ -87,7 +82,7 @@ For detailed commands instruction and introduction, please check:
 > * Specify number of processes to run in parallel with *-j*
 
 
-## Frequently asked Questions
+## Frequently Asked Questions
 
 [FAQs](https://github.com/lulab/exSEEK_docs/tree/dd93c0deb8978e7aa0276d6fdf40ae288e5d42fa/FAQ.md)
 
