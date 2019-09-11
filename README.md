@@ -9,7 +9,7 @@
 - [Installation](#installation)
 - [Usage](#basic-usage-of-exseek)
 - [Contact](#contact)
-- [Frequently asked Questions](#frequently-asked-questions)
+- [Frequently Asked Questions](#frequently-asked-questions)
 - [Copyright and License Information](#copyright-and-license-information)
 
 
@@ -17,7 +17,7 @@
 
 For easy installation, you can use the docker image we provide: [exSEEK Docker Image](https://hub.docker.com/r/ltbyshi/exseek)
 
-If you would like to manually set up the environment, please follow the [requirements](https://exseek.gitbook.io/docs/installation)
+Alternatively, you can use use singularity or udocker to run the container for Linux kernel < 3 or if you don't have permission to use docker.
 
 
 ## exSEEK modules
@@ -97,4 +97,4 @@ Copyright (C) 2019 Tsinghua University, Beijing, China
 
 Authors: Binbin Shi, Xupeng Chen, Jingyi Cao and Zhi John Lu 
 
-This program is licensed with commercial restriction use license. Please see the [LICENSE](https://choosealicense.com/licenses/gpl-3.0/) file for details.
+This program is licensed with commercial restriction use license. Please see the [LICENSE](https://github.com/lulab/exSEEK_docs/blob/master/LICENSE) file for details.
