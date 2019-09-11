@@ -2,9 +2,7 @@
 
 ## How to install and set up the environment
 
-We have packaged everything into docker and singularity. The easiest and recommended way is via Singularity.
-
-You can refer to this doc's [Singularity part](installation.md)
+We have packaged everything into [exSEEK docker image](https://hub.docker.com/r/ltbyshi/exseek)
 
 ## How to use exSEEK
 
