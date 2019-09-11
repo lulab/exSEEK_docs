@@ -6,16 +6,12 @@
 
 ## Table of Contents
 
-- [Workflow](#Workflow)
 - [Installation](#installation)
 - [Usage](#basic-usage-of-exseek)
 - [Contact](#contact)
 - [Frequently asked Questions](#frequently-asked-questions)
 - [Copyright and License Information](#copyright-and-license-information)
 
-## Workflow
-
-![workflow](.gitbook/assets/whole_pipe.png)
 
 ## Installation
 
